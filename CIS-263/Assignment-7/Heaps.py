@@ -4,19 +4,18 @@ class MinHeap:
         self.max = max
         self.size = 0
         self.Heap = [0]
-        self.Heap = [0]
 
         pass
 
 
-    def parent(self, index):
-        return (index // 2)
+    def parent(self, ind):
+        return (ind // 2)
 
-    def left(self, index):
-        return (2 * index)
+    def left(self, ind):
+        return (2 * ind)
 
-    def right(self, index):
-        return (2 * index) + 1
+    def right(self, ind):
+        return (2 * ind) + 1
 
 
 
@@ -24,7 +23,7 @@ class MinHeap:
     def minHeapify(self, index):
         self.l = left(index)
         self.r = right(index)
-        if self.l <= len(array) and array[self.l] < array[index]: 
+        if self.l <= self.Heap[self.size] and self.left(index) < array[index]: 
             smallest = self.l
         else:
             smallest = index
@@ -33,6 +32,7 @@ class MinHeap:
 
     def buildMinheap(self, array):
         size = len(array) // 2
+        self.Heap = [0] + array[:]
         for i in range(size, 0 ,-1):
 
         pass
