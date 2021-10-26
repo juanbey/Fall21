@@ -1,7 +1,6 @@
-
 class MinHeap:
-    def __init__(self, max = 50):
-        self.max = max
+    def __init__(self, min = 0):
+        self.min = min
         self.size = 0
         self.heap = []
         
@@ -28,7 +27,7 @@ class MinHeap:
         size = len(array) // 2
         self.heap = [0] + array[:]
         for i in range(size, 0 ,-1):
-
+            pass
         pass
     def heapsort(self, A):
         pass
@@ -36,14 +35,21 @@ class MinHeap:
         pass
     def heapExtractmin(self):
         pass
-    def heapDecreasekey(self, i, key):
+    def heapDecreasekey(self, index, key):
+        if key < self.heap[index]:      
+            raise Exception(f"{key} is larger than {self.heap[index]}")
+        self.heap[index] = key
+        while index > 1 and self.heap[self.parent(index)]
         pass
     def minHeapinsert(self, value):
-        if self.size >= self.max:
+        if value < self.min:
+            print(f"Value must be less than {self.min} entered: {value}")
             return
         self.size += 1
-        self.heap[self.size] = value
+        current = self.size
+        
+        self.heap[current]= value
 
-        while self.heap:
-            
+        while self.heap[current] < self.heap[self.parent[current]]:
+            pass
         pass
