@@ -1,3 +1,6 @@
+from _typeshed import Self
+
+
 class MinHeap:
 
     def __init__(self, min = 0, array = None):
@@ -33,7 +36,7 @@ class MinHeap:
             self.minHeapify(smallest)
 
     def buildMinheap(self):
-        size = len(self.heap) // 2
+        self.size = len(self.heap) // 2
         for i in range(size, -1,-1):
             self.minHeapify(i)
             
@@ -42,9 +45,22 @@ class MinHeap:
         n = len(self.heap)
         for i in range(n,1,-1):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
+            self.size -= 1
             self.minHeapify(1)
-        
-            def decreasekey(self, index, value):
+     
+    def heapmin(self):
+        return self.heap[0]  
+
+    def extractmin(self):
+        if self.size < 1:
+            raise Exception("Heap underflow (The heap is empty)")
+        min = self.heap[0]
+        self.heap[0] = self.heap[self.size]
+        self.size =- 1
+        self.minHeapify(1)
+        return min
+
+    def decreasekey(self, index, value):
         if value < self.heap[index]:      
             raise Exception(f"{value} is larger than {self.heap[index]}")
         self.heap[index] = value
@@ -61,17 +77,6 @@ class MinHeap:
         
         self.heap[current] = value
         self.decreasekey(current, value)
-    
-    
-    def heapmin(self):
-        return self.heap[0]
-    
-
-#TODO--------------------------------------------------
-    
-
-    def extractmin(self):
-        pass
 
 if __name__ == "__main__":
 
